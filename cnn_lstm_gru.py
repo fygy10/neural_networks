@@ -5,8 +5,8 @@ def generic_vns_function(rnn_type = '', num_classes=10):
     Input = layers.Input(shape=input_shape) #input layer
     
     #CNN; x updated at each step
-    x = layers.TimeDistributed(layers.Conv2D(32, 3, activation='relu'))(Input)
-    x = layers.TimeDistributed(layers.MaxPooling2D((2, 2)))(x)
+    x = layers.Conv2D(32, 3, activation='relu')(Input)
+    x = layers.MaxPooling2D((2, 2))(x)
     x = layers.TimeDistributed(layers.Flatten())(x)
     
     #RNN; specific RNN layers to choose from
